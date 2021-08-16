@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 
 import styles from '../../../styles/Game.module.css'
 
-export default function game() {
+export default function Game() {
   const router = useRouter()
 
   const [validDoors, setValid] = useState(false)
