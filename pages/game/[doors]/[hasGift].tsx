@@ -8,7 +8,19 @@ import styles from '../../../styles/Game.module.css'
 
 export default function game() {
   const router = useRouter()
+
+  const [validDoors, setValid] = useState(false)
   const [doors, setDoors] = useState([])
+
+  useEffect(() => {
+    const doors = +router.query.doors
+    const hasGift = +router.query.hasGift
+
+    const validDoors = doors >= 3 && doors <= 30
+    const validHasGift = hasGift >= 1 && hasGift <= doors
+
+    setValid(validDoors && validHasGift)
+  }, [doors])
 
   useEffect(() => {
     const doors = +router.query.doors
@@ -19,7 +31,7 @@ export default function game() {
   }, [router?.query])
 
   function renderDoors() {
-    return doors.map(door => {
+    return validDoors && doors.map(door => {
       return <Door key={door.number} value={door} onChange={newDoor => setDoors(refreshDoors(doors, newDoor))} />
     })
   }

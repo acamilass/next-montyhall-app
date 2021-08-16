@@ -32,6 +32,8 @@
 
   padding: 15px;
   background-color: chocolate;
+
+  cursor: pointer;
 }
 
 .number {
@@ -47,6 +49,8 @@
   width: 20px;
   border-radius: 50%;
   background-color: brown;
+
+  cursor: pointer;
 }
 
 .floor {
